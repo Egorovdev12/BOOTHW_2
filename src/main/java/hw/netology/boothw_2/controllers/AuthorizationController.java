@@ -13,6 +13,10 @@ public class AuthorizationController {
 
     AuthorizationService service;
 
+    public AuthorizationController(AuthorizationService as) {
+        this.service = as;
+    }
+
     @GetMapping("/authorize")
     public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
         return service.getAuthorities(user, password);
